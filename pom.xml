@@ -18,7 +18,7 @@
 
 	<groupId>org.azkfw</groupId>
 	<artifactId>azuki-servlet</artifactId>
-	<version>1.4.5</version>
+	<version>1.5.0</version>
 	<packaging>jar</packaging>
 
 	<name>azuki-servlet</name>
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.azkfw</groupId>
 			<artifactId>azuki-base</artifactId>
-			<version>1.4.4</version>
+			<version>1.5.0</version>
 		</dependency>
 
 		<dependency>
@@ -70,6 +70,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
