@@ -23,6 +23,7 @@ import javax.servlet.ServletConfig;
 
 import org.azkfw.configuration.ConfigurationFormatException;
 import org.azkfw.log.LoggerFactory;
+import org.azkfw.log.StdoutLoggerFactory;
 import org.azkfw.plugin.PluginManager;
 import org.azkfw.plugin.PluginServiceException;
 import org.azkfw.util.StringUtility;
@@ -54,19 +55,22 @@ public final class AzukiPluginServlet extends AbstractServlet {
 	}
 
 	@Override
-	protected void doInitialize(final ServletConfig aConfig) {
-		String logClass = aConfig.getInitParameter("logger-class");
-		String logConfig = aConfig.getInitParameter("logger-config");
+	protected void doInitialize(final ServletConfig config) {
+		String logClass = config.getInitParameter("logger-class");
+		String logConfig = config.getInitParameter("logger-config");
+		if (StringUtility.isEmpty(logClass)) {
+			logClass = StdoutLoggerFactory.class.getName();
+		}
 		LoggerFactory.load(logClass, logConfig, getContext());
 
-		plugin = aConfig.getInitParameter("plugin-config");
-		PluginManager.initialize();
+		plugin = config.getInitParameter("plugin-config");
+		PluginManager.getInstance().initialize();
 		doLoad();
 	}
 
 	@Override
 	protected void doDestroy() {
-		PluginManager.destroy();
+		PluginManager.getInstance().destroy();
 	}
 
 	/**
@@ -76,7 +80,7 @@ public final class AzukiPluginServlet extends AbstractServlet {
 		if (StringUtility.isNotEmpty(plugin)) {
 			info("Load plugin config file.[" + plugin + "]");
 			try {
-				PluginManager.load(plugin, getContext());
+				PluginManager.getInstance().load(plugin, getContext());
 			} catch (PluginServiceException ex) {
 				error(ex);
 			} catch (ConfigurationFormatException ex) {

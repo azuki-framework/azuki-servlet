@@ -56,218 +56,218 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param aName 名前
+	 * @param name 名前
 	 */
-	public PrimitiveServlet(final String aName) {
-		logger = LoggerFactory.create(aName);
+	public PrimitiveServlet(final String name) {
+		logger = LoggerFactory.create(name);
 	}
 
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param aClass クラス
+	 * @param clazz クラス
 	 */
-	public PrimitiveServlet(final Class<?> aClass) {
-		logger = LoggerFactory.create(aClass);
+	public PrimitiveServlet(final Class<?> clazz) {
+		logger = LoggerFactory.create(clazz);
 	}
 
 	/**
 	 * debugレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
+	 * @param message Message
 	 */
-	protected final void debug(final String aMessage) {
+	protected final void debug(final String message) {
 		if (null != logger) {
-			logger.debug(aMessage);
+			logger.debug(message);
 		} else {
-			LOGGER.debug(aMessage);
-		}
-	}
-
-	/**
-	 * debugレベルのログを出力します。
-	 * 
-	 * @param aThrow Throwable
-	 */
-	protected final void debug(final Throwable aThrow) {
-		if (null != logger) {
-			logger.debug(aThrow);
-		} else {
-			LOGGER.debug(aThrow);
+			LOGGER.debug(message);
 		}
 	}
 
 	/**
 	 * debugレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
-	 * @param aThrow Throwable
+	 * @param throwable Throwable
 	 */
-	protected final void debug(final String aMessage, final Throwable aThrow) {
+	protected final void debug(final Throwable throwable) {
 		if (null != logger) {
-			logger.debug(aMessage, aThrow);
+			logger.debug(throwable);
 		} else {
-			LOGGER.debug(aMessage, aThrow);
+			LOGGER.debug(throwable);
+		}
+	}
+
+	/**
+	 * debugレベルのログを出力します。
+	 * 
+	 * @param message Message
+	 * @param throwable Throwable
+	 */
+	protected final void debug(final String message, final Throwable throwable) {
+		if (null != logger) {
+			logger.debug(message, throwable);
+		} else {
+			LOGGER.debug(message, throwable);
 		}
 	}
 
 	/**
 	 * infoレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
+	 * @param message Message
 	 */
-	protected final void info(final String aMessage) {
+	protected final void info(final String message) {
 		if (null != logger) {
-			logger.info(aMessage);
+			logger.info(message);
 		} else {
-			LOGGER.info(aMessage);
+			LOGGER.info(message);
 		}
 	}
 
 	/**
 	 * infoレベルのログを出力します。
 	 * 
-	 * @param aThrow Throwable
+	 * @param throwable Throwable
 	 */
-	protected final void info(final Throwable aThrow) {
+	protected final void info(final Throwable throwable) {
 		if (null != logger) {
-			logger.info(aThrow);
+			logger.info(throwable);
 		} else {
-			LOGGER.info(aThrow);
+			LOGGER.info(throwable);
 		}
 	}
 
 	/**
 	 * infoレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
-	 * @param aThrow Throwable
+	 * @param message Message
+	 * @param throwable Throwable
 	 */
-	protected final void info(final String aMessage, final Throwable aThrow) {
+	protected final void info(final String message, final Throwable throwable) {
 		if (null != logger) {
-			logger.info(aMessage, aThrow);
+			logger.info(message, throwable);
 		} else {
-			LOGGER.info(aMessage, aThrow);
+			LOGGER.info(message, throwable);
 		}
 	}
 
 	/**
 	 * warnレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
+	 * @param message Message
 	 */
-	protected final void warn(final String aMessage) {
+	protected final void warn(final String message) {
 		if (null != logger) {
-			logger.warn(aMessage);
+			logger.warn(message);
 		} else {
-			LOGGER.warn(aMessage);
+			LOGGER.warn(message);
 		}
 	}
 
 	/**
 	 * warnレベルのログを出力します。
 	 * 
-	 * @param aThrow Throwable
+	 * @param throwable Throwable
 	 */
-	protected final void warn(final Throwable aThrow) {
+	protected final void warn(final Throwable throwable) {
 		if (null != logger) {
-			logger.warn(aThrow);
+			logger.warn(throwable);
 		} else {
-			LOGGER.warn(aThrow);
+			LOGGER.warn(throwable);
 		}
 	}
 
 	/**
 	 * warnレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
-	 * @param aThrow Throwable
+	 * @param message Message
+	 * @param throwable Throwable
 	 */
-	protected final void warn(final String aMessage, final Throwable aThrow) {
+	protected final void warn(final String message, final Throwable throwable) {
 		if (null != logger) {
-			logger.warn(aMessage, aThrow);
+			logger.warn(message, throwable);
 		} else {
-			LOGGER.warn(aMessage, aThrow);
+			LOGGER.warn(message, throwable);
 		}
 	}
 
 	/**
 	 * errorレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
+	 * @param message Message
 	 */
-	protected final void error(final String aMessage) {
+	protected final void error(final String message) {
 		if (null != logger) {
-			logger.error(aMessage);
+			logger.error(message);
 		} else {
-			LOGGER.error(aMessage);
+			LOGGER.error(message);
 		}
 	}
 
 	/**
 	 * errorレベルのログを出力します。
 	 * 
-	 * @param aThrow Throwable
+	 * @param throwable Throwable
 	 */
-	protected final void error(final Throwable aThrow) {
+	protected final void error(final Throwable throwable) {
 		if (null != logger) {
-			logger.error(aThrow);
+			logger.error(throwable);
 		} else {
-			LOGGER.error(aThrow);
+			LOGGER.error(throwable);
 		}
 	}
 
 	/**
 	 * errorレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
-	 * @param aThrow Throwable
+	 * @param message Message
+	 * @param throwable Throwable
 	 */
-	protected final void error(final String aMessage, final Throwable aThrow) {
+	protected final void error(final String message, final Throwable throwable) {
 		if (null != logger) {
-			logger.error(aMessage, aThrow);
+			logger.error(message, throwable);
 		} else {
-			LOGGER.error(aMessage, aThrow);
+			LOGGER.error(message, throwable);
 		}
 	}
 
 	/**
 	 * fatalレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
+	 * @param message Message
 	 */
-	protected final void fatal(final String aMessage) {
+	protected final void fatal(final String message) {
 		if (null != logger) {
-			logger.fatal(aMessage);
+			logger.fatal(message);
 		} else {
-			LOGGER.fatal(aMessage);
+			LOGGER.fatal(message);
 		}
 	}
 
 	/**
 	 * fatalレベルのログを出力します。
 	 * 
-	 * @param aThrow Throwable
+	 * @param throwable Throwable
 	 */
-	protected final void fatal(final Throwable aThrow) {
+	protected final void fatal(final Throwable throwable) {
 		if (null != logger) {
-			logger.fatal(aThrow);
+			logger.fatal(throwable);
 		} else {
-			LOGGER.fatal(aThrow);
+			LOGGER.fatal(throwable);
 		}
 	}
 
 	/**
 	 * fatalレベルのログを出力します。
 	 * 
-	 * @param aMessage Message
-	 * @param aThrow Throwable
+	 * @param message Message
+	 * @param throwable Throwable
 	 */
-	protected final void fatal(final String aMessage, final Throwable aThrow) {
+	protected final void fatal(final String message, final Throwable throwable) {
 		if (null != logger) {
-			logger.fatal(aMessage, aThrow);
+			logger.fatal(message, throwable);
 		} else {
-			LOGGER.fatal(aMessage, aThrow);
+			LOGGER.fatal(message, throwable);
 		}
 	}
 }

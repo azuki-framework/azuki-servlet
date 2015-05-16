@@ -51,26 +51,26 @@ public abstract class AbstractServlet extends PrimitiveServlet {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param aName 名前
+	 * @param name 名前
 	 */
-	public AbstractServlet(final String aName) {
-		super(aName);
+	public AbstractServlet(final String name) {
+		super(name);
 	}
 
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param aClass クラス
+	 * @param clazz クラス
 	 */
-	public AbstractServlet(final Class<?> aClass) {
-		super(aClass);
+	public AbstractServlet(final Class<?> clazz) {
+		super(clazz);
 	}
 
 	@Override
-	public final void init(final ServletConfig aConfig) throws ServletException {
-		super.init(aConfig);
-		context = new ServletContext(aConfig.getServletContext());
-		doInitialize(aConfig);
+	public final void init(final ServletConfig config) throws ServletException {
+		super.init(config);
+		context = new ServletContext(config.getServletContext());
+		doInitialize(config);
 	}
 
 	@Override
@@ -81,10 +81,10 @@ public abstract class AbstractServlet extends PrimitiveServlet {
 	/**
 	 * 初期化処理を行う。
 	 * 
-	 * @param aConfig コンフィグ情報
+	 * @param config コンフィグ情報
 	 * @throws ServletException サーブレット機能に起因する問題が発生した場合
 	 */
-	protected abstract void doInitialize(final ServletConfig aConfig) throws ServletException;
+	protected abstract void doInitialize(final ServletConfig config) throws ServletException;
 
 	/**
 	 * 解放処理を行う。

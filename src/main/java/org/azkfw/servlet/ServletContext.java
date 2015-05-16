@@ -29,7 +29,6 @@ import org.azkfw.context.AbstractContext;
  * @since 1.0.0
  * @version 1.0.0 12/06/07
  * @author Kawakicchi
- * 
  */
 public class ServletContext extends AbstractContext {
 
@@ -41,33 +40,33 @@ public class ServletContext extends AbstractContext {
 	/**
 	 * コンストラクタ
 	 * 
-	 * @param aContext コンテキスト
+	 * @param context コンテキスト
 	 */
-	public ServletContext(final javax.servlet.ServletContext aContext) {
-		context = aContext;
+	public ServletContext(final javax.servlet.ServletContext context) {
+		this.context = context;
 	}
 
 	@Override
-	public String getAbstractPath(final String aName) {
-		return context.getRealPath(getFullPath(aName));
+	public String getAbstractPath(final String name) {
+		return context.getRealPath(getFullPath(name));
 	}
 
 	@Override
-	public InputStream getResourceAsStream(final String aName) {
+	public InputStream getResourceAsStream(final String name) {
 		InputStream stream = null;
-		stream = context.getResourceAsStream(getFullPath(aName));
+		stream = context.getResourceAsStream(getFullPath(name));
 		if (null == stream) {
 			try {
-				stream = new FileInputStream(aName);
+				stream = new FileInputStream(name);
 			} catch (FileNotFoundException ex) {
 				;
 			}
 		}
 		if (null == stream) {
-			stream = this.getClass().getResourceAsStream(aName);
+			stream = this.getClass().getResourceAsStream(name);
 		}
 		if (null == stream) {
-			stream = Class.class.getResourceAsStream(aName);
+			stream = Class.class.getResourceAsStream(name);
 		}
 		return stream;
 	}
@@ -75,15 +74,15 @@ public class ServletContext extends AbstractContext {
 	/**
 	 * フルパスを取得する。
 	 * 
-	 * @param aName Name
+	 * @param name Name
 	 * @return パス
 	 */
-	private String getFullPath(final String aName) {
+	private String getFullPath(final String name) {
 		StringBuffer sb = new StringBuffer("/WEB-INF");
-		if (!aName.startsWith("/")) {
+		if (!name.startsWith("/")) {
 			sb.append("/");
 		}
-		sb.append(aName);
+		sb.append(name);
 		return sb.toString();
 	}
 }
