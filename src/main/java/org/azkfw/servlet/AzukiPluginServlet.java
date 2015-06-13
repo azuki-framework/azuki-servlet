@@ -92,5 +92,4 @@ public final class AzukiPluginServlet extends AbstractServlet {
 			warn("Not setting plugin-config.[web.xml]");
 		}
 	}
-
 }

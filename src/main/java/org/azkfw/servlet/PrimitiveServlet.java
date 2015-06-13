@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServlet;
 
 import org.azkfw.log.Logger;
 import org.azkfw.log.LoggerFactory;
+import org.azkfw.log.LoggerSupport;
 
 /**
  * このクラスは、サーブレット機能を実装した基底クラスです。
@@ -29,17 +30,12 @@ import org.azkfw.log.LoggerFactory;
  * @version 1.0.0 2013/06/26
  * @author Kawakicchi
  */
-public abstract class PrimitiveServlet extends HttpServlet {
+public abstract class PrimitiveServlet extends HttpServlet implements LoggerSupport {
 
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 2063808859381345201L;
-
-	/**
-	 * Default logger
-	 */
-	private static Logger LOGGER = LoggerFactory.create(PrimitiveServlet.class);
 
 	/**
 	 * logger
@@ -50,7 +46,12 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * コンストラクタ
 	 */
 	public PrimitiveServlet() {
-		logger = null;
+		logger = LoggerFactory.create(this.getClass());
+	}
+
+	@Override
+	public final void setLogger(final Logger logger) {
+		this.logger = logger;
 	}
 
 	/**
@@ -77,11 +78,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param message Message
 	 */
 	protected final void debug(final String message) {
-		if (null != logger) {
-			logger.debug(message);
-		} else {
-			LOGGER.debug(message);
-		}
+		logger.debug(message);
 	}
 
 	/**
@@ -90,11 +87,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void debug(final Throwable throwable) {
-		if (null != logger) {
-			logger.debug(throwable);
-		} else {
-			LOGGER.debug(throwable);
-		}
+		logger.debug(throwable);
 	}
 
 	/**
@@ -104,11 +97,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void debug(final String message, final Throwable throwable) {
-		if (null != logger) {
-			logger.debug(message, throwable);
-		} else {
-			LOGGER.debug(message, throwable);
-		}
+		logger.debug(message, throwable);
 	}
 
 	/**
@@ -117,11 +106,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param message Message
 	 */
 	protected final void info(final String message) {
-		if (null != logger) {
-			logger.info(message);
-		} else {
-			LOGGER.info(message);
-		}
+		logger.info(message);
 	}
 
 	/**
@@ -130,11 +115,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void info(final Throwable throwable) {
-		if (null != logger) {
-			logger.info(throwable);
-		} else {
-			LOGGER.info(throwable);
-		}
+		logger.info(throwable);
 	}
 
 	/**
@@ -144,11 +125,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void info(final String message, final Throwable throwable) {
-		if (null != logger) {
-			logger.info(message, throwable);
-		} else {
-			LOGGER.info(message, throwable);
-		}
+		logger.info(message, throwable);
 	}
 
 	/**
@@ -157,11 +134,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param message Message
 	 */
 	protected final void warn(final String message) {
-		if (null != logger) {
-			logger.warn(message);
-		} else {
-			LOGGER.warn(message);
-		}
+		logger.warn(message);
 	}
 
 	/**
@@ -170,11 +143,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void warn(final Throwable throwable) {
-		if (null != logger) {
-			logger.warn(throwable);
-		} else {
-			LOGGER.warn(throwable);
-		}
+		logger.warn(throwable);
 	}
 
 	/**
@@ -184,11 +153,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void warn(final String message, final Throwable throwable) {
-		if (null != logger) {
-			logger.warn(message, throwable);
-		} else {
-			LOGGER.warn(message, throwable);
-		}
+		logger.warn(message, throwable);
 	}
 
 	/**
@@ -197,11 +162,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param message Message
 	 */
 	protected final void error(final String message) {
-		if (null != logger) {
-			logger.error(message);
-		} else {
-			LOGGER.error(message);
-		}
+		logger.error(message);
 	}
 
 	/**
@@ -210,11 +171,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void error(final Throwable throwable) {
-		if (null != logger) {
-			logger.error(throwable);
-		} else {
-			LOGGER.error(throwable);
-		}
+		logger.error(throwable);
 	}
 
 	/**
@@ -224,11 +181,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void error(final String message, final Throwable throwable) {
-		if (null != logger) {
-			logger.error(message, throwable);
-		} else {
-			LOGGER.error(message, throwable);
-		}
+		logger.error(message, throwable);
 	}
 
 	/**
@@ -237,11 +190,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param message Message
 	 */
 	protected final void fatal(final String message) {
-		if (null != logger) {
-			logger.fatal(message);
-		} else {
-			LOGGER.fatal(message);
-		}
+		logger.fatal(message);
 	}
 
 	/**
@@ -250,11 +199,7 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void fatal(final Throwable throwable) {
-		if (null != logger) {
-			logger.fatal(throwable);
-		} else {
-			LOGGER.fatal(throwable);
-		}
+		logger.fatal(throwable);
 	}
 
 	/**
@@ -264,10 +209,6 @@ public abstract class PrimitiveServlet extends HttpServlet {
 	 * @param throwable Throwable
 	 */
 	protected final void fatal(final String message, final Throwable throwable) {
-		if (null != logger) {
-			logger.fatal(message, throwable);
-		} else {
-			LOGGER.fatal(message, throwable);
-		}
+		logger.fatal(message, throwable);
 	}
 }
