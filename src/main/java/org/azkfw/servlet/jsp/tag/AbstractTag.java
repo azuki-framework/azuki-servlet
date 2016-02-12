@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
-import org.azkfw.lang.LoggingObject;
+import org.azkfw.log.LoggingObject;
 import org.azkfw.servlet.store.HttpSessionStore;
 import org.azkfw.util.StringUtility;
 
